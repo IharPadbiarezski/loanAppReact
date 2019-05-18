@@ -41,7 +41,7 @@ class Form extends Component {
 
 	render() {
 		// extract some contents from state
-		const { amount } = this.state;
+		// const { amount } = this.state;
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<div>
