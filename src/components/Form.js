@@ -6,6 +6,17 @@ class Form extends Component {
 		term: ''
 	};
 
+	handleSubmit = (e) => {
+		e.preventDefault();
+
+		// read the values from the state
+		const { amount, term } = this.state;
+
+		// pass the data to the main component
+
+		this.props.loanInformation(amount, term);
+	};
+
 	handleChange = (e) => {
 		// read form data
 		const { name, value } = e.target;
@@ -32,7 +43,7 @@ class Form extends Component {
 		// extract some contents from state
 		const { amount } = this.state;
 		return (
-			<form>
+			<form onSubmit={this.handleSubmit}>
 				<div>
 					<label>Amount</label>
 					<input

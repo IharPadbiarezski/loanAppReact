@@ -1,18 +1,37 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import './normalize.css';
 import './skeleton.css';
 import Form from './components/Form';
+import { calculateTotal } from './helper';
 
-function App() {
-	return (
-		<Fragment>
-			<h1>Loan Calculator</h1>
+class App extends Component {
+	state = {
+		total: '',
+		amount: '',
+		term: ''
+	};
 
-			<div className="container">
-				<Form />
-			</div>
-		</Fragment>
-	);
+	loanInformation = (amount, term) => {
+		const total = calculateTotal(amount, term);
+
+		this.setState({
+			amount,
+			total,
+			term
+		});
+	};
+
+	render() {
+		return (
+			<Fragment>
+				<h1>Loan Calculator</h1>
+
+				<div className="container">
+					<Form loanInformation={this.loanInformation} />
+				</div>
+			</Fragment>
+		);
+	}
 }
 
 export default App;
