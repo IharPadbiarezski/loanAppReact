@@ -8,7 +8,9 @@ function App() {
 		<Fragment>
 			<h1>Loan Calculator</h1>
 
-			<Form />
+			<div className="container">
+				<Form />
+			</div>
 		</Fragment>
 	);
 }
